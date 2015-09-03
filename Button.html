@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the "Click Me" button to create a BUTTON element with a "Click me" text, Click again on
+newly created BUTTON another BUTTON is created and the previous one become "DISABLED" ........ </p>
+
+<button id="btn" >Click Me</button>
+
+<script>
+var t;
+var x;
+
+var a = document.getElementById("btn");
+a.addEventListener("click", myFunction);
+a.addEventListener("click", disableFunction);
+
+
+function myFunction() {
+     x = document.createElement("BUTTON");
+     t = document.createTextNode("Click Me");
+    x.appendChild(t);
+    document.body.appendChild(x);
+x.addEventListener("click", myFunction1);
+
+}
+
+function myFunction1() {
+x.addEventListener("click", x.disabled = true);
+     x = document.createElement("BUTTON");
+     t = document.createTextNode("Click Me");
+    x.appendChild(t);
+    document.body.appendChild(x);
+x.addEventListener("click", myFunction1);
+
+
+}
+function disableFunction() {
+    document.getElementById("btn").disabled = 'true';
+}
+
+</script>
+
+</body>
+</html>
